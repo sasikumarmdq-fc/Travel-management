@@ -1,0 +1,264 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:reference_name",
+ "creation": "2026-09-02 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "reference_name",
+  "reference_type",
+  "status",
+  "column_break_hotel",
+  "city",
+  "destination",
+  "section_break_hotel",
+  "local_currency",
+  "local_rate",
+  "usd_rate",
+  "column_break_hotel2",
+  "inr_rate",
+  "approval_threshold",
+  "section_break_perdiem",
+  "rate",
+  "day_counting_rule",
+  "section_break_insurance",
+  "insurance_type",
+  "provider",
+  "coverage_details",
+  "column_break_insurance2",
+  "min_days",
+  "max_days",
+  "section_break_approver",
+  "contact_role",
+  "department",
+  "column_break_approver2",
+  "email",
+  "responsibility",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reference Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "reference_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "Hotel\nPer Diem\nInsurance\nApprover",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "column_break_hotel",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.reference_type=='Hotel'",
+   "fieldname": "city",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "City",
+   "options": "\nMuscat\nDoha"
+  },
+  {
+   "depends_on": "eval:doc.reference_type!='Hotel'",
+   "fieldname": "destination",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Destination / Country"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.reference_type=='Hotel'",
+   "fieldname": "section_break_hotel",
+   "fieldtype": "Section Break",
+   "label": "Hotel Details"
+  },
+  {
+   "fieldname": "local_currency",
+   "fieldtype": "Data",
+   "label": "Local Currency"
+  },
+  {
+   "fieldname": "local_rate",
+   "fieldtype": "Float",
+   "label": "Local Rate (per night)"
+  },
+  {
+   "fieldname": "usd_rate",
+   "fieldtype": "Currency",
+   "label": "USD Rate (per night)",
+   "options": "USD"
+  },
+  {
+   "fieldname": "column_break_hotel2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inr_rate",
+   "fieldtype": "Currency",
+   "label": "INR Rate (per night)",
+   "options": "INR"
+  },
+  {
+   "fieldname": "approval_threshold",
+   "fieldtype": "Currency",
+   "label": "Approval Threshold (USD)",
+   "options": "USD"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.reference_type=='Per Diem'",
+   "fieldname": "section_break_perdiem",
+   "fieldtype": "Section Break",
+   "label": "Per Diem Details"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate (USD/Day)",
+   "options": "USD"
+  },
+  {
+   "fieldname": "day_counting_rule",
+   "fieldtype": "Data",
+   "label": "Day Counting Rule"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.reference_type=='Insurance'",
+   "fieldname": "section_break_insurance",
+   "fieldtype": "Section Break",
+   "label": "Insurance Details"
+  },
+  {
+   "fieldname": "insurance_type",
+   "fieldtype": "Data",
+   "label": "Insurance Type"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Data",
+   "label": "Provider"
+  },
+  {
+   "fieldname": "coverage_details",
+   "fieldtype": "Small Text",
+   "label": "Coverage Details"
+  },
+  {
+   "fieldname": "column_break_insurance2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "min_days",
+   "fieldtype": "Int",
+   "label": "Min Days"
+  },
+  {
+   "fieldname": "max_days",
+   "fieldtype": "Int",
+   "label": "Max Days"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.reference_type=='Approver'",
+   "fieldname": "section_break_approver",
+   "fieldtype": "Section Break",
+   "label": "Approver / Contact Details"
+  },
+  {
+   "fieldname": "contact_role",
+   "fieldtype": "Data",
+   "label": "Role"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "column_break_approver2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "responsibility",
+   "fieldtype": "Data",
+   "label": "Responsible For"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-02 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Travel Management",
+ "name": "Travel Reference Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Travel Coordinator"
+  },
+  {
+   "read": 1,
+   "role": "Employee"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

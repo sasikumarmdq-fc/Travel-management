@@ -11,22 +11,21 @@ app_license = "mit"
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "travel_management",
-# 		"logo": "/assets/travel_management/logo.png",
-# 		"title": "Travel Management",
-# 		"route": "/travel_management",
-# 		"has_permission": "travel_management.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "travel_management",
+		"logo": "/assets/travel_management/images/travel-management-logo.svg",
+		"title": "Travel Management",
+		"route": "/desk/travel-management",
+	}
+]
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/travel_management/css/travel_management.css"
-# app_include_js = "/assets/travel_management/js/travel_management.js"
+app_include_css = "/assets/travel_management/css/workspace_shortcuts.css"
+app_include_js = "/assets/travel_management/js/workspace_shortcuts.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/travel_management/css/travel_management.css"
@@ -149,23 +148,12 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"travel_management.tasks.all"
-# 	],
-# 	"daily": [
-# 		"travel_management.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"travel_management.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"travel_management.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"travel_management.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"daily": [
+		"travel_management.travel_management.doctype.travel_approval_request.travel_approval_request.send_approval_reminders",
+		"travel_management.travel_management.doctype.travel_approval_request.travel_approval_request.send_expense_report_reminders",
+	],
+}
 
 # Testing
 # -------

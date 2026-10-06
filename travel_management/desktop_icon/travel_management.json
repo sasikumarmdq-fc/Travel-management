@@ -1,0 +1,18 @@
+{
+ "app": "travel_management",
+ "bg_color": "blue",
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_type": "App",
+ "idx": 101,
+ "label": "Travel Management",
+ "link": "/desk/travel-management",
+ "link_to": "",
+ "link_type": "External",
+ "logo_url": "/assets/travel_management/images/travel-management-logo.svg",
+ "name": "Travel Management",
+ "owner": "Administrator",
+ "restrict_removal": 0,
+ "roles": [],
+ "standard": 1
+}

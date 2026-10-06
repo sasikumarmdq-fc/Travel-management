@@ -1,0 +1,328 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-09-02 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "travel_request",
+  "employee",
+  "employee_name",
+  "column_break_1",
+  "submission_date",
+  "travel_from_date",
+  "travel_to_date",
+  "is_late_submission",
+  "section_break_details",
+  "expense_details",
+  "section_break_summary",
+  "total_expenses",
+  "per_diem_claimed",
+  "column_break_summary2",
+  "actual_vs_per_diem",
+  "reimbursement_amount",
+  "currency",
+  "section_break_approvals",
+  "manager_approved",
+  "finance_approved",
+  "column_break_approvals2",
+  "settlement_status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "ER-.YYYY.-.#####",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "travel_request",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Travel Request",
+   "options": "Travel Approval Request",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "submission_date",
+   "fieldtype": "Date",
+   "label": "Submission Date"
+  },
+  {
+   "fetch_from": "travel_request.travel_from_date",
+   "fieldname": "travel_from_date",
+   "fieldtype": "Date",
+   "label": "Travel From Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "travel_request.travel_to_date",
+   "fieldname": "travel_to_date",
+   "fieldtype": "Date",
+   "label": "Travel To Date",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_late_submission",
+   "fieldtype": "Check",
+   "label": "Late Submission (>3 working days)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_details",
+   "fieldtype": "Section Break",
+   "label": "Expense Details"
+  },
+  {
+   "fieldname": "expense_details",
+   "fieldtype": "Table",
+   "label": "Expense Items",
+   "options": "Travel Expense Item"
+  },
+  {
+   "fieldname": "section_break_summary",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "total_expenses",
+   "fieldtype": "Currency",
+   "label": "Total Expenses",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "travel_request.total_per_diem",
+   "fieldname": "per_diem_claimed",
+   "fieldtype": "Currency",
+   "label": "Per Diem Claimed",
+   "options": "USD",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_summary2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_vs_per_diem",
+   "fieldtype": "Currency",
+   "label": "Actual Spend vs Per Diem",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reimbursement_amount",
+   "fieldtype": "Currency",
+   "label": "Reimbursement Amount",
+   "options": "currency",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "INR",
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_approvals",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "default": "0",
+   "fieldname": "manager_approved",
+   "fieldtype": "Check",
+   "label": "Manager Approved",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "finance_approved",
+   "fieldtype": "Check",
+   "label": "Finance Approved",
+   "allow_on_submit": 1,
+   "permlevel": 2
+  },
+  {
+   "fieldname": "column_break_approvals2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "settlement_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Settlement Status",
+   "options": "Pending\nPaid",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 2
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Travel Expense Report",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "icon": "small-file",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-02 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Travel Management",
+ "name": "Travel Expense Report",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "create": 1,
+   "email": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Employee",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Finance Approver",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "Travel Coordinator"
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "role": "Travel Manager",
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "role": "Employee"
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "role": "Finance Approver"
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "role": "Travel Coordinator"
+  },
+  {
+   "permlevel": 2,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "permlevel": 2,
+   "read": 1,
+   "role": "Finance Approver",
+   "write": 1
+  },
+  {
+   "permlevel": 2,
+   "read": 1,
+   "role": "Employee"
+  },
+  {
+   "permlevel": 2,
+   "read": 1,
+   "role": "Travel Manager"
+  },
+  {
+   "permlevel": 2,
+   "read": 1,
+   "role": "Travel Coordinator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

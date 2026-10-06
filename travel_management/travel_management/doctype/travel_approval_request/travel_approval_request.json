@@ -1,0 +1,1268 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-09-02 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "employee",
+  "employee_name",
+  "employee_email",
+  "column_break_1",
+  "manager",
+  "destination",
+  "trip_purpose",
+  "section_break_dates",
+  "travel_from_date",
+  "travel_to_date",
+  "column_break_2",
+  "travel_days",
+  "is_extension",
+  "section_break_extension",
+  "original_travel_request",
+  "extended_from_date",
+  "extended_to_date",
+  "column_break_ext2",
+  "extended_hotel_cost",
+  "extension_per_diem",
+  "total_extension_cost",
+  "section_break_approval",
+  "ta_form_status",
+  "visa_status",
+  "visa_country",
+  "visa_contact",
+  "visa_contact_email",
+  "qatar_visa_confirmed",
+  "oman_visa_confirmed",
+  "visa_approval_date",
+  "column_break_approval2",
+  "manlio_approval_status",
+  "manlio_approval_date",
+  "manager_green_light_date",
+  "flight_status",
+  "hotel_status",
+  "insurance_status",
+  "overall_status",
+  "section_break_ta_form",
+  "prepared_by",
+  "prepared_date",
+  "column_break_ta1",
+  "designation",
+  "department",
+  "business_justification",
+  "column_break_ta2",
+  "visa_required",
+  "visa_type",
+  "coordinator_completion_date",
+  "section_break_ta_attach",
+  "passport_copy",
+  "photo",
+  "column_break_ta3",
+  "visa_application_form",
+  "other_documents",
+  "section_break_flight",
+  "flight_preferred_dates",
+  "flight_route",
+  "column_break_flight2",
+  "estimated_flight_fare_usd",
+  "estimated_flight_fare",
+  "flight_approval_required",
+  "flight_approval_by",
+  "section_break_hotel",
+  "hotel_name",
+  "hotel_checkin_date",
+  "hotel_checkout_date",
+  "hotel_nights",
+  "column_break_hotel_req2",
+  "hotel_daily_rate_usd",
+  "hotel_daily_rate_inr",
+  "hotel_currency",
+  "hotel_approval_required",
+  "hotel_approval_by",
+  "total_hotel_cost_usd",
+  "total_hotel_cost_inr",
+  "section_break_hotel2",
+  "hotel_name_2",
+  "hotel_checkin_date_2",
+  "hotel_checkout_date_2",
+  "hotel_nights_2",
+  "column_break_hotel_req2b",
+  "hotel_daily_rate_usd_2",
+  "hotel_daily_rate_inr_2",
+  "hotel_currency_2",
+  "hotel_approval_required_2",
+  "hotel_approval_by_2",
+  "total_hotel_cost_usd_2",
+  "total_hotel_cost_inr_2",
+  "section_break_perdiem",
+  "per_diem_rate",
+  "per_diem_currency",
+  "column_break_perdiem2",
+  "total_per_diem",
+  "section_break_insurance",
+  "insurance_type",
+  "insurance_start_date",
+  "insurance_end_date",
+  "column_break_insurance_req2",
+  "insurance_policy_number",
+  "insurance_min_days",
+  "travel_insurance_cost_usd",
+  "health_insurance_cost_usd",
+  "insurance_estimated_cost",
+  "insurance_notes",
+  "section_break_forex",
+  "is_first_time_traveler",
+  "forex_card_suggested",
+  "forex_card_issued",
+  "column_break_forex2",
+  "forex_card_number",
+  "forex_card_amount_loaded",
+  "forex_misc_amount",
+  "forex_card_emergency_buffer",
+  "forex_card_status",
+  "section_break_cost",
+  "total_estimated_cost",
+  "section_break_tracking",
+  "pending_action",
+  "approval_timeline",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "TR-.YYYY.-.#####",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.user_id",
+   "fieldname": "employee_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Employee Email",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.docstatus==1",
+   "fetch_from": "employee.reports_to",
+   "fieldname": "manager",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Reporting Manager",
+   "options": "Employee",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "destination",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Destination",
+   "options": "\nQatar\nOman\nBoth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "trip_purpose",
+   "fieldtype": "Small Text",
+   "label": "Trip Purpose"
+  },
+  {
+   "fieldname": "section_break_dates",
+   "fieldtype": "Section Break",
+   "label": "Travel Dates"
+  },
+  {
+   "fieldname": "travel_from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Travel From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "travel_to_date",
+   "fieldtype": "Date",
+   "label": "Travel To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "travel_days",
+   "fieldtype": "Int",
+   "label": "Travel Days",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_extension",
+   "fieldtype": "Check",
+   "label": "Is Extension"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.is_extension",
+   "fieldname": "section_break_extension",
+   "fieldtype": "Section Break",
+   "label": "Extension Details"
+  },
+  {
+   "fieldname": "original_travel_request",
+   "fieldtype": "Link",
+   "label": "Original Travel Request",
+   "options": "Travel Approval Request"
+  },
+  {
+   "fieldname": "extended_from_date",
+   "fieldtype": "Date",
+   "label": "Extended From Date",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "extended_to_date",
+   "fieldtype": "Date",
+   "label": "Extended To Date",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "column_break_ext2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "extended_hotel_cost",
+   "fieldtype": "Currency",
+   "label": "Extended Hotel Cost (USD)",
+   "options": "USD",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "extension_per_diem",
+   "fieldtype": "Currency",
+   "label": "Extension Per Diem",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "total_extension_cost",
+   "fieldtype": "Currency",
+   "label": "Total Extension Cost (USD)",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_approval",
+   "fieldtype": "Section Break",
+   "label": "Approval Status"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "ta_form_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "TA Form Status",
+   "options": "Draft\nPrepared\nRouted\nApproved\nConfirmed",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "visa_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Visa Status",
+   "options": "Pending\nApproved\nRejected",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 2
+  },
+  {
+   "fieldname": "visa_country",
+   "fieldtype": "Data",
+   "label": "Visa Country",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "visa_contact",
+   "fieldtype": "Data",
+   "label": "Visa Contact",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "visa_contact_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Visa Contact Email",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "qatar_visa_confirmed",
+   "fieldtype": "Check",
+   "label": "Qatar Visa Confirmed",
+   "depends_on": "eval:doc.destination==\"Both\"",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "oman_visa_confirmed",
+   "fieldtype": "Check",
+   "label": "Oman Visa Confirmed",
+   "depends_on": "eval:doc.destination==\"Both\"",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "visa_approval_date",
+   "fieldtype": "Date",
+   "label": "Visa Approval Date",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 2
+  },
+  {
+   "fieldname": "column_break_approval2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "manlio_approval_status",
+   "fieldtype": "Select",
+   "label": "Final Approval Status",
+   "options": "Pending\nApproved\nRejected",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 3
+  },
+  {
+   "fieldname": "manlio_approval_date",
+   "fieldtype": "Date",
+   "label": "Final Approval Date",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 3
+  },
+  {
+   "fieldname": "manager_green_light_date",
+   "fieldtype": "Date",
+   "label": "Manager Green Light Date",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 3
+  },
+  {
+   "default": "Pending",
+   "fieldname": "flight_status",
+   "fieldtype": "Select",
+   "label": "Flight Status",
+   "options": "Pending\nConfirmed",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 4
+  },
+  {
+   "default": "Pending",
+   "fieldname": "hotel_status",
+   "fieldtype": "Select",
+   "label": "Hotel Status",
+   "options": "Pending\nConfirmed",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 4
+  },
+  {
+   "default": "Pending",
+   "fieldname": "insurance_status",
+   "fieldtype": "Select",
+   "label": "Insurance Status",
+   "options": "Pending\nConfirmed",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "bold": 1,
+   "default": "Requested",
+   "fieldname": "overall_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Overall Status",
+   "options": "Requested\nIn Progress\nApproved\nCompleted\nRejected\nCancelled",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "section_break_ta_form",
+   "fieldtype": "Section Break",
+   "label": "Travel Authorization Form",
+   "collapsible": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "prepared_by",
+   "fieldtype": "Link",
+   "label": "Prepared By",
+   "options": "User",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "prepared_date",
+   "fieldtype": "Date",
+   "label": "Prepared Date",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_ta1",
+   "fieldtype": "Column Break",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation",
+   "fetch_from": "employee.designation",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department",
+   "fetch_from": "employee.department",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "business_justification",
+   "fieldtype": "Small Text",
+   "label": "Business Justification",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_ta2",
+   "fieldtype": "Column Break",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "visa_required",
+   "fieldtype": "Check",
+   "label": "Visa Required",
+   "default": "1",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "visa_type",
+   "fieldtype": "Data",
+   "label": "Visa Type",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "coordinator_completion_date",
+   "fieldtype": "Datetime",
+   "label": "Coordinator Completion",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "section_break_ta_attach",
+   "fieldtype": "Section Break",
+   "label": "Attachments",
+   "collapsible": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "passport_copy",
+   "fieldtype": "Attach",
+   "label": "Passport Copy",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach",
+   "label": "Photo (4x6)",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_ta3",
+   "fieldtype": "Column Break",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "visa_application_form",
+   "fieldtype": "Attach",
+   "label": "Visa Application Form",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "other_documents",
+   "fieldtype": "Attach",
+   "label": "Other Documents",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_flight",
+   "fieldtype": "Section Break",
+   "label": "Flight Requirement"
+  },
+  {
+   "fieldname": "flight_preferred_dates",
+   "fieldtype": "Small Text",
+   "label": "Flight Preferred Dates",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "flight_route",
+   "fieldtype": "Data",
+   "label": "Route (From - To)",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "column_break_flight2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "estimated_flight_fare_usd",
+   "fieldtype": "Currency",
+   "label": "Estimated Flight Fare (USD)",
+   "options": "USD",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "estimated_flight_fare",
+   "fieldtype": "Currency",
+   "label": "Estimated Flight Fare (INR)",
+   "options": "INR",
+   "read_only": 1,
+   "hidden": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "flight_approval_required",
+   "fieldtype": "Check",
+   "label": "Flight Approval Required",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "flight_approval_by",
+   "fieldtype": "Data",
+   "label": "Flight Approval By",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_hotel",
+   "fieldtype": "Section Break",
+   "label": "Accommodation"
+  },
+  {
+   "fieldname": "hotel_name",
+   "fieldtype": "Link",
+   "label": "Hotel",
+   "options": "Travel Reference Master",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_checkin_date",
+   "fieldtype": "Date",
+   "label": "Hotel Check-in Date",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_checkout_date",
+   "fieldtype": "Date",
+   "label": "Hotel Check-out Date",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_nights",
+   "fieldtype": "Int",
+   "label": "Hotel Nights",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "column_break_hotel_req2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hotel_daily_rate_usd",
+   "fieldtype": "Currency",
+   "label": "Hotel Daily Rate (USD)",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_daily_rate_inr",
+   "fieldtype": "Currency",
+   "label": "Hotel Daily Rate (INR)",
+   "options": "INR",
+   "read_only": 1,
+   "hidden": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_currency",
+   "fieldtype": "Data",
+   "label": "Hotel Local Currency",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "hotel_approval_required",
+   "fieldtype": "Check",
+   "label": "Hotel Approval Required",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_approval_by",
+   "fieldtype": "Data",
+   "label": "Hotel Approval By",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "total_hotel_cost_usd",
+   "fieldtype": "Currency",
+   "label": "Total Hotel Cost (USD)",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "total_hotel_cost_inr",
+   "fieldtype": "Currency",
+   "label": "Total Hotel Cost (INR)",
+   "options": "INR",
+   "read_only": 1,
+   "hidden": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_hotel2",
+   "fieldtype": "Section Break",
+   "label": "Second Hotel — Oman Leg (Both Destinations Only)",
+   "depends_on": "eval:doc.destination==\"Both\""
+  },
+  {
+   "fieldname": "hotel_name_2",
+   "fieldtype": "Link",
+   "label": "Hotel (Oman)",
+   "options": "Travel Reference Master",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_checkin_date_2",
+   "fieldtype": "Date",
+   "label": "Hotel Check-in Date (Oman)",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_checkout_date_2",
+   "fieldtype": "Date",
+   "label": "Hotel Check-out Date (Oman)",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_nights_2",
+   "fieldtype": "Int",
+   "label": "Hotel Nights (Oman)",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "column_break_hotel_req2b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hotel_daily_rate_usd_2",
+   "fieldtype": "Currency",
+   "label": "Hotel Daily Rate (USD) (Oman)",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_daily_rate_inr_2",
+   "fieldtype": "Currency",
+   "label": "Hotel Daily Rate (INR) (Oman)",
+   "options": "INR",
+   "read_only": 1,
+   "hidden": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_currency_2",
+   "fieldtype": "Data",
+   "label": "Hotel Local Currency (Oman)",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "hotel_approval_required_2",
+   "fieldtype": "Check",
+   "label": "Hotel Approval Required (Oman)",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "hotel_approval_by_2",
+   "fieldtype": "Data",
+   "label": "Hotel Approval By (Oman)",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "total_hotel_cost_usd_2",
+   "fieldtype": "Currency",
+   "label": "Total Hotel Cost (USD) (Oman)",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "total_hotel_cost_inr_2",
+   "fieldtype": "Currency",
+   "label": "Total Hotel Cost (INR) (Oman)",
+   "options": "INR",
+   "read_only": 1,
+   "hidden": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_perdiem",
+   "fieldtype": "Section Break",
+   "label": "Per Diem"
+  },
+  {
+   "fieldname": "per_diem_rate",
+   "fieldtype": "Currency",
+   "label": "Per Diem Rate",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "USD",
+   "fieldname": "per_diem_currency",
+   "fieldtype": "Data",
+   "label": "Per Diem Currency",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "column_break_perdiem2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_per_diem",
+   "fieldtype": "Currency",
+   "label": "Total Per Diem",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_insurance",
+   "fieldtype": "Section Break",
+   "label": "Insurance"
+  },
+  {
+   "fieldname": "insurance_type",
+   "fieldtype": "Data",
+   "label": "Insurance Type",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "insurance_start_date",
+   "fieldtype": "Date",
+   "label": "Insurance Start Date",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "insurance_end_date",
+   "fieldtype": "Date",
+   "label": "Insurance End Date",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_insurance_req2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance_policy_number",
+   "fieldtype": "Data",
+   "label": "Insurance Policy Number",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "insurance_min_days",
+   "fieldtype": "Int",
+   "label": "Insurance Min Days",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "travel_insurance_cost_usd",
+   "fieldtype": "Currency",
+   "label": "Travel Insurance (USD)",
+   "options": "USD",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "health_insurance_cost_usd",
+   "fieldtype": "Currency",
+   "label": "Health Insurance (USD)",
+   "options": "USD",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "insurance_estimated_cost",
+   "fieldtype": "Currency",
+   "label": "Insurance Estimated Cost (INR)",
+   "options": "INR",
+   "read_only": 1,
+   "hidden": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "insurance_notes",
+   "fieldtype": "Small Text",
+   "label": "Insurance Notes",
+   "read_only": 1,
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_forex",
+   "fieldtype": "Section Break",
+   "label": "Forex Card"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_first_time_traveler",
+   "fieldtype": "Check",
+   "label": "Is First-Time Traveler",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "forex_card_suggested",
+   "fieldtype": "Check",
+   "label": "Forex Card Suggested",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "forex_card_issued",
+   "fieldtype": "Check",
+   "label": "Forex Card Issued",
+   "allow_on_submit": 1,
+   "permlevel": 5
+  },
+  {
+   "fieldname": "column_break_forex2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.forex_card_issued",
+   "fieldname": "forex_card_number",
+   "fieldtype": "Data",
+   "label": "Forex Card Number",
+   "allow_on_submit": 1,
+   "permlevel": 5
+  },
+  {
+   "fieldname": "forex_card_amount_loaded",
+   "fieldtype": "Currency",
+   "label": "Forex Card Loading Amount (USD)",
+   "options": "USD",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "forex_misc_amount",
+   "fieldtype": "Currency",
+   "label": "Miscellaneous Amount (USD)",
+   "options": "USD",
+   "allow_on_submit": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "forex_card_emergency_buffer",
+   "fieldtype": "Currency",
+   "label": "Forex Card Emergency Buffer",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "forex_card_status",
+   "fieldtype": "Select",
+   "label": "Forex Card Status",
+   "options": "Pending\nSubmitted\nActivated",
+   "allow_on_submit": 1,
+   "permlevel": 5
+  },
+  {
+   "fieldname": "section_break_cost",
+   "fieldtype": "Section Break",
+   "label": "Cost Summary"
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_estimated_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Estimated Cost (USD)",
+   "options": "USD",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_tracking",
+   "fieldtype": "Section Break",
+   "label": "Workflow Tracking"
+  },
+  {
+   "fieldname": "pending_action",
+   "fieldtype": "Small Text",
+   "label": "Pending Action",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "approval_timeline",
+   "fieldtype": "Table",
+   "label": "Approval Timeline",
+   "options": "Travel Request Timeline",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Travel Approval Request",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "icon": "tick",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-02 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Travel Management",
+ "name": "Travel Approval Request",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Coordinator",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Visa Contact",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Approval Authority",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Finance Approver",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "Travel Agent",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Forex Card Processor",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Employee",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 1,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Travel Manager",
+   "permlevel": 1,
+   "read": 1
+  },
+  {
+   "role": "Travel Coordinator",
+   "permlevel": 1,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Visa Contact",
+   "permlevel": 1,
+   "read": 1
+  },
+  {
+   "role": "Forex Card Processor",
+   "permlevel": 1,
+   "read": 1
+  },
+  {
+   "role": "Employee",
+   "permlevel": 1,
+   "read": 1,
+   "if_owner": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 2,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Travel Manager",
+   "permlevel": 2,
+   "read": 1
+  },
+  {
+   "role": "Travel Coordinator",
+   "permlevel": 2,
+   "read": 1
+  },
+  {
+   "role": "Visa Contact",
+   "permlevel": 2,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Employee",
+   "permlevel": 2,
+   "read": 1,
+   "if_owner": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 3,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Travel Manager",
+   "permlevel": 3,
+   "read": 1
+  },
+  {
+   "role": "Approval Authority",
+   "permlevel": 3,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Employee",
+   "permlevel": 3,
+   "read": 1,
+   "if_owner": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 4,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Travel Manager",
+   "permlevel": 4,
+   "read": 1
+  },
+  {
+   "role": "Travel Coordinator",
+   "permlevel": 4,
+   "read": 1
+  },
+  {
+   "role": "Finance Approver",
+   "permlevel": 4,
+   "read": 1
+  },
+  {
+   "role": "Travel Agent",
+   "permlevel": 4,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Employee",
+   "permlevel": 4,
+   "read": 1,
+   "if_owner": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 5,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Forex Card Processor",
+   "permlevel": 5,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "Employee",
+   "permlevel": 5,
+   "read": 1,
+   "if_owner": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

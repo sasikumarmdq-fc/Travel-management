@@ -1,0 +1,172 @@
+{
+ "app": "travel_management",
+ "charts": [],
+ "content": "[{\"id\":\"hdr001\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Travel Management</b></span>\",\"col\":12}},{\"id\":\"sc002\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Travel Approval Request\",\"col\":3}},{\"id\":\"sc003\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Travel Budget Estimate\",\"col\":3}},{\"id\":\"sc004\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Travel Expense Report\",\"col\":3}},{\"id\":\"sc005\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Travel Reference Master\",\"col\":3}},{\"id\":\"sp006\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hdr007\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters &amp; Reports</b></span>\",\"col\":12}},{\"id\":\"card008\",\"type\":\"card\",\"data\":{\"card_name\":\"Travel Requests\",\"col\":4}},{\"id\":\"card009\",\"type\":\"card\",\"data\":{\"card_name\":\"Budget & Expenses\",\"col\":4}},{\"id\":\"card010\",\"type\":\"card\",\"data\":{\"card_name\":\"Reference Data\",\"col\":4}},{\"id\":\"card011\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "website",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "Travel Management",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Requests",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Approval Request",
+   "link_count": 0,
+   "link_to": "Travel Approval Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Budget & Expenses",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Budget Estimate",
+   "link_count": 0,
+   "link_to": "Travel Budget Estimate",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Expense Report",
+   "link_count": 0,
+   "link_to": "Travel Expense Report",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reference Data",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Reference Master",
+   "link_count": 0,
+   "link_to": "Travel Reference Master",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 4,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Travel Request Status Report",
+   "link_count": 0,
+   "link_to": "Travel Request Status Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Travel Budget Report",
+   "link_count": 0,
+   "link_to": "Travel Budget Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Travel Expense Report Analysis",
+   "link_count": 0,
+   "link_to": "Travel Expense Report Analysis",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Travel Audit Trail Report",
+   "link_count": 0,
+   "link_to": "Travel Audit Trail Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "module": "Travel Management",
+ "name": "Travel Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 99.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "icon": "tick",
+   "label": "Travel Approval Request",
+   "link_to": "Travel Approval Request",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "icon": "money-coins-1",
+   "label": "Travel Budget Estimate",
+   "link_to": "Travel Budget Estimate",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "icon": "small-file",
+   "label": "Travel Expense Report",
+   "link_to": "Travel Expense Report",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "icon": "list-alt",
+   "label": "Travel Reference Master",
+   "link_to": "Travel Reference Master",
+   "type": "DocType"
+  }
+ ],
+ "title": "Travel Management",
+ "type": "Workspace"
+}
